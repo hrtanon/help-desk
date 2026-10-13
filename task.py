@@ -38,8 +38,8 @@ class Task():
                 popis=str(input("zadej popis"))
                 coment=str(input("zadej komentar"))
 
-                if coment==" ":
-                    coment==None
+                if coment=="":
+                    coment=None
                     #overuje kdyz je komentar nepoviny ze kdyz je zadny tak to ho nebude vyzadovat
 
                 return title,popis,coment
@@ -52,7 +52,7 @@ class Task():
         task=Task(self.zisk_hodnot())
         #patri do task manageru na sem
     
-    def zmena_statusu(self,status):
+    def zmena_statusu(self,stav):
         """_summary_
         vypise povolene statusy z kterych se pak vybere pozadovany a zmeni puvodni status na ten druhy
         """        
@@ -60,12 +60,13 @@ class Task():
             povolene_statusy=["hotovo","probiha","ceka","opravuje se"]
             print(povolene_statusy)
             new_status=input("vyber status")
-            if new_status!=povolene_statusy:
-                print("neplatny status")
-                continue
-            else:
-                self.status=new_status
-                return f"status byl zmenen na {new_status}"
+            for stav in povolene_statusy:
+                if new_status!=povolene_statusy:
+                                print("neplatny status")
+                                continue
+                else:
+                                self.stav=new_status
+                                return f"status byl zmenen na {new_status}"
 
 
     def zmena_technika(self,technik):
@@ -75,8 +76,8 @@ class Task():
             new_technik2=input("zadej znovu jmeno technika")
             if new_technik1==new_technik2:
 
-                technik=new_technik1
-                return technik
+                self.technik=new_technik1
+                return self.technik
             else:
                 print("jmena se neshoduji")
                 continue
@@ -85,5 +86,5 @@ class Task():
     def pridat_popis(self,popis):
         print(f"minuly popis je{self.popis}")
         new_popis=str(input("pridej popis"))
-        popis=popis+new_popis
-        return popis
+        self.popis=popis+new_popis
+        return self.popis
