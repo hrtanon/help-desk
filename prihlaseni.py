@@ -8,7 +8,7 @@ class Uzivatel():
         self.prijmeni=prijmeni
         self.heslo=heslo 
         self.role=role
-        self.uzivatele=[]
+        
 
 
     def vytvoreni_hesla(self):
@@ -67,14 +67,4 @@ class Uzivatel():
                     print("spatne jmeno")
                     continue
 
-    def
 
-
-
-
-
-
-
-
-class Technik(Uzivatel):
-    super.__init__
