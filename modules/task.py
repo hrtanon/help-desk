@@ -35,9 +35,6 @@ class Task:
             except ValueError:
                 continue
 
-    def zaloz_task(self, title, popis, coment):
-        # Zatím nedokončeno.
-        pass
 
     def zmena_statusu(self, stav=None):
         """Změní stav úkolu na jeden z povolených stavů."""

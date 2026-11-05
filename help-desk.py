@@ -35,4 +35,26 @@ class Help_desk():
     
     def delete_dle_id(self,id):
         return 
-    
+
+
+
+
+
+
+    def zmena_status_dle_id(self,id):
+        """_summary_ porovna zda se id nachai v listu a kdyz ho najde tak tomnu tasku zmeni status
+        
+
+        Args:
+            id (_type_): _description_
+
+        Returns:
+            _type_: _description_
+        """        
+        for task in self.tasks:
+            if task.id ==id :
+                self.zmena_statusu()
+                return f"status zmenen"
+            continue
+
+        return f"id neni"
