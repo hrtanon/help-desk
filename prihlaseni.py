@@ -3,10 +3,11 @@
 
 
 class Uzivatel():
-    def __init__(self,jmeno,prijmeni,heslo):
+    def __init__(self,jmeno,prijmeni,heslo,role=None):
         self.jmeno=jmeno
-        self.primeni=prijmeni
+        self.prijmeni=prijmeni
         self.heslo=heslo 
+        self.role=role
         self.uzivatele=[]
 
 
@@ -29,10 +30,11 @@ class Uzivatel():
 
 
     def zalozeni_uzivatele(self):
+        zakaznik=zakaznik
         jmeno=input("zadej jmeno")
         prijmeni=input("zadej prijmeni")
         heslo=self.vytvoreni_hesla()
-        uzivatel=Uzivatel(jmeno,prijmeni,heslo)
+        uzivatel=Uzivatel(jmeno,prijmeni,heslo,zakaznik)
         self.uzivatele.append(uzivatel)
         print("uzivatel zaregistrovan")
 
@@ -47,7 +49,7 @@ class Uzivatel():
         while True:
             jmeno=input("zadej jmeno")
         
-            for uzivatel in self.uzivatele():
+            for uzivatel in self.uzivatele:
                 if uzivatel.jmeno==jmeno:
                     prijmeni=input("zadej prijmeni")
                     if uzivatel.prijmeni==prijmeni:
@@ -65,5 +67,14 @@ class Uzivatel():
                     print("spatne jmeno")
                     continue
 
-    
+    def
 
+
+
+
+
+
+
+
+class Technik(Uzivatel):
+    super.__init__
