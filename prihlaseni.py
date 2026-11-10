@@ -12,6 +12,11 @@ class Uzivatel():
 
 
     def vytvoreni_hesla(self):
+        """_summary_ vytvori heslo overi ze neni prazne pole a overi ze bylo zadano dvakrat
+
+        Returns:
+            _type_: _description_
+        """        
         while True:
 
             heslo=input("zadej heslo")
@@ -30,6 +35,9 @@ class Uzivatel():
 
 
     def zalozeni_uzivatele(self):
+        """_summary_ zalozi uzivatele a prida ho do seznamu uzivatelu 
+        imput string jmeno primeni pluis pouziti fuknce vytvoreni hesla
+        """        
     
         jmeno=input("zadej jmeno")
         prijmeni=input("zadej prijmeni")
@@ -69,6 +77,12 @@ class Uzivatel():
 
 
     def zmena_hesla(self):
+        """_summary_ overi zda heslo ktere zada zadatel tady v tehlke funkci se shoduji s ulozenym v listu
+        pak vola vytvoreni hesla 
+
+        Returns:
+            _type_: _description_
+        """        
         while True:
                 jmeno=input("zadej jmeno")
                 heslo=input("zadej heslo")

@@ -18,11 +18,13 @@ class Sprava_uzivatelu():
 
 
     def zalozeni_uzivatele(self):
-            zakaznik=zakaznik
+            """_summary_ zalozi uzivatele a prida ho do seznamu uzivatelu 
+                imput string jmeno primeni pluis pouziti fuknce vytvoreni hesla
+            """  
             jmeno=input("zadej jmeno")
             prijmeni=input("zadej prijmeni")
             heslo=self.vytvoreni_hesla()
-            uzivatel=Uzivatel(jmeno,prijmeni,heslo,zakaznik)
+            uzivatel=Uzivatel(jmeno,prijmeni,heslo,"zakaznik")
             self.uzivatele.append(uzivatel)
             print("uzivatel zaregistrovan")
     
@@ -58,13 +60,19 @@ class Sprava_uzivatelu():
 
 
     def generace_hesla(self):
+        """_summary_ vytvori nahodne heslo ktera pak zada technik od hesla technika ktrery ho tam pak zada
+
+        Returns:
+            _type_: _description_
+        """        
         
         if self.role=="admin":
             for i in range(0,5):
 
                 a=random.randint(0,99)
                 nahodne_heslo+=a
-                return nahodne_heslo
+            print (nahodne_heslo)
+            return nahodne_heslo
 
         else: 
             print("nemate opravneni")
