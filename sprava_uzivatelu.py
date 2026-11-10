@@ -58,8 +58,8 @@ class Sprava_uzivatelu():
 
 
     def generace_hesla(self):
-        admin=admin   #sahuioasfhuasuhfoisndýgfinsaudiluhgasdgfhsaoídáfzhsagfhsghsahg
-        if self.role==admin:
+        
+        if self.role=="admin":
             for i in range(0,5):
 
                 a=random.randint(0,99)
@@ -79,7 +79,6 @@ class Sprava_uzivatelu():
             Returns:
                 _type_: _description_
                 """ 
-            technik=technik #asfuhasfhdafsadjigopsadvnsapodifhuewsuhofgsbdvoausd365109948796410       
             while True:
                 jmeno=input("zadej jmeno")
                 
@@ -90,7 +89,7 @@ class Sprava_uzivatelu():
                             heslo=input("zadej heslo")
                             if uzivatel.heslo==heslo:
                                 print("jste prihlaseni")
-                                self.role=technik
+                                self.role="technik"
                                 return True
                             else:
                                 print("spatne heslo")

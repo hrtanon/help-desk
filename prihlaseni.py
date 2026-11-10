@@ -30,11 +30,11 @@ class Uzivatel():
 
 
     def zalozeni_uzivatele(self):
-        zakaznik=zakaznik   #adsgfuozaisfnwoeýfiáh cafuzsdgafhsaodíiufhdsuihgnsdiu648418410864
+    
         jmeno=input("zadej jmeno")
         prijmeni=input("zadej prijmeni")
         heslo=self.vytvoreni_hesla()
-        uzivatel=Uzivatel(jmeno,prijmeni,heslo,zakaznik)
+        uzivatel=Uzivatel(jmeno,prijmeni,heslo,"zakaznik")
         self.uzivatele.append(uzivatel)
         print("uzivatel zaregistrovan")
 
