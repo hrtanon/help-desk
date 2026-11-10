@@ -1,4 +1,4 @@
-
+from sprava_uzivatelu import Sprava_uzivatelu
 
 
 
@@ -30,7 +30,7 @@ class Uzivatel():
 
 
     def zalozeni_uzivatele(self):
-        zakaznik=zakaznik
+        zakaznik=zakaznik   #adsgfuozaisfnwoeýfiáh cafuzsdgafhsaodíiufhdsuihgnsdiu648418410864
         jmeno=input("zadej jmeno")
         prijmeni=input("zadej prijmeni")
         heslo=self.vytvoreni_hesla()
@@ -66,5 +66,21 @@ class Uzivatel():
                 else:
                     print("spatne jmeno")
                     continue
+
+
+    def zmena_hesla(self):
+        while True:
+                jmeno=input("zadej jmeno")
+                heslo=input("zadej heslo")
+                for uzivatel in self.uzivatele:
+                    if uzivatel.jmeno==jmeno:
+                            if heslo==uzivatel.heslo:
+                                heslo==self.vytvoreni_hesla()
+                                uzivatel.heslo=heslo
+                                return "heslo bylo ulozeno"
+                    
+                    else:
+                        print("chyba zkuste to znovu")
+                        continue
 
 
