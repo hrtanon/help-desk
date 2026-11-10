@@ -34,48 +34,6 @@ class Uzivatel():
                 continue
 
 
-    def zalozeni_uzivatele(self):
-        """_summary_ zalozi uzivatele a prida ho do seznamu uzivatelu 
-        imput string jmeno primeni pluis pouziti fuknce vytvoreni hesla
-        """        
-    
-        jmeno=input("zadej jmeno")
-        prijmeni=input("zadej prijmeni")
-        heslo=self.vytvoreni_hesla()
-        uzivatel=Uzivatel(jmeno,prijmeni,heslo,"zakaznik")
-        self.uzivatele.append(uzivatel)
-        print("uzivatel zaregistrovan")
-
-
-    def prihlaseni(self):
-        """_summary_ overuje zda zadavane udaje se nachazi v listu uzivatele
-        pokud ano vrati true jinak cykli
-
-        Returns:
-            _type_: _description_
-        """        
-        while True:
-            jmeno=input("zadej jmeno")
-        
-            for uzivatel in self.uzivatele:
-                if uzivatel.jmeno==jmeno:
-                    prijmeni=input("zadej prijmeni")
-                    if uzivatel.prijmeni==prijmeni:
-                        heslo=input("zadej heslo")
-                        if uzivatel.heslo==heslo:
-                            print("jste prihlaseni")
-                            return True
-                        else:
-                            print("spatne heslo")
-                            continue
-                    else:
-                        print("spatne prijmeni")
-                        continue
-                else:
-                    print("spatne jmeno")
-                    continue
-
-
     def zmena_hesla(self):
         """_summary_ overi zda heslo ktere zada zadatel tady v tehlke funkci se shoduji s ulozenym v listu
         pak vola vytvoreni hesla 
