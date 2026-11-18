@@ -1,4 +1,5 @@
-from modules.task import Task
+
+from task import Task
 import os
 
 

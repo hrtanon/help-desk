@@ -1,5 +1,4 @@
-
-from modules.help_desk import Help_desk
+from help_desk import Help_desk
 
 
 helpdesk = Help_desk()
