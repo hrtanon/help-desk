@@ -33,6 +33,25 @@ class Help_desk():
         for task in self.tasks:
             print(task)
     
-    def delete_dle_id(self,id):
-        return 
+    def najdi_dle_id(self,id):
+        """Vrátí úkol podle ID, pokud existuje."""
+
+        for task in self.tasks:
+            if task.id == id:
+                return task
+            
+            
+    def delete_dle_id(self, id):
+        """Odstraní úkol podle ID."""
+
+        task = self.najdi_dle_id(id)
+
+        if task is None:
+            print("Task s tímto ID neexistuje.")
+            return False
+
+        self.tasks.remove(task)
+        print("Task byl odstraněn.")
+        return True
+    
     

@@ -53,6 +53,10 @@ class Task:
 
             self.stav = new_status
             return f"Status byl změněn na {new_status}"
+        
+        
+    def __str__(self):
+        return f"[{self.id}] {self.title} | {self.stav}"
 
     def zmena_technika(self, technik=None):
         """Změní technika po dvojím zadání jeho jména."""
