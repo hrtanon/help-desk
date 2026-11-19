@@ -6,7 +6,7 @@
 class Task:
     """Třída ukládá úkol a provádí operace, které se ho týkají."""
 
-    def __init__(self, id, title, popis, zadavatel, stav, technik, coment=None):
+    def __init__(self, id, title, popis, zadavatel, stav, technik=None, coment=None):
         self.title = title
         self.popis = popis
         self.zadavatel = zadavatel
@@ -17,9 +17,10 @@ class Task:
 
     def info(self):
         """Vrátí informace o úkolu."""
-        return f"{self.title}, {self.id}, {self.popis}, {self.zadavatel}, {self.coment}"
+        return f"{self.title}, {self.id}, {self.popis}, {self.zadavatel}, {self.coment},{self.stav}"
 
-    def zisk_hodnot(self):
+    @staticmethod
+    def zisk_hodnot():
         """Načte hodnoty od uživatele."""
         while True:
             try:
@@ -27,8 +28,7 @@ class Task:
                 popis = input("Zadej popis: ")
                 coment = input("Zadej komentář (nepovinný): ")
 
-                if coment == "":
-                    coment = None
+                
 
                 return title, popis, coment
 

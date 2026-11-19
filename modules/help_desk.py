@@ -6,7 +6,6 @@ import os
 class Help_desk():
     def __init__(self):
         self.tasks=[]
-        id
         self.next_id=1
     
     
@@ -23,8 +22,8 @@ class Help_desk():
         """        
         id=self.next_id
         self.next_id+=1
-        title,popis,coment = self.zisk_hodnot()
-        ukol=Task(id,title,popis,coment)
+        title,popis,coment = Task.zisk_hodnot()
+        ukol=Task(id,title,popis,"uzivatelů","zalozen","technik",coment)
         self.tasks.append(ukol)
         print("task zalozen")
     
@@ -56,10 +55,6 @@ class Help_desk():
         print("Task byl odstraněn.")
         return True
     
-    
-
-    def delete_dle_id(self,id):
-        return 
 
 
 
