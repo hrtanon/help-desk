@@ -9,7 +9,21 @@ class Help_desk():
         self.next_id=1
     
     
+    def zisk_hodnot():
+            """Načte hodnoty od uživatele."""
+            while True:
+                title = input("Zadej název: ")
+                popis = input("Zadej popis: ")
+                coment = input("Zadej komentář (nepovinný): ")
     
+                if title=="":
+                    print("zadejte nazev")
+                    continue
+            
+                Task.zmena_hodnot(title, popis, coment)
+                return f"hotovo problem {title} ulozen"
+    
+        
     
     def novy_task(self):
         """
@@ -78,3 +92,44 @@ class Help_desk():
             continue
 
         return f"id neni"
+
+
+    def zmena_statusu(self, stav=None):
+            """Změní stav úkolu na jeden z povolených stavů."""
+            povolene_statusy = ["hotovo", "probiha", "ceka", "opravuje se"]
+    
+            while True:
+                print(povolene_statusy)
+                new_status = input("Vyber status: ")
+    
+                if new_status not in povolene_statusy:
+                    print("Neplatný status.")
+                    continue
+    
+                Task.zmena_statusu(new_status)
+                return f"Status byl změněn na {new_status}"
+
+
+
+
+
+def pridat_popis(self):
+        """Přidá nový text k dosavadnímu popisu."""
+        Task.vypis_popis()
+        new_popis = input("Přidej popis: ")
+        Task.pridat_popis(new_popis)
+        
+        return Task.vypis_popis()
+        
+
+def zmena_technika(self, technik=None):
+        """Změní technika po dvojím zadání jeho jména."""
+        while True:
+            new_technik1 = input("Zadej jméno nového technika: ")
+            new_technik2 = input("Zadej znovu jméno technika: ")
+
+            if new_technik1 == new_technik2:
+                Task.ulozeni_technika(new_technik1)
+                return f"technik zmenen na {new_technik1}"
+
+            print("Jména se neshodují.")

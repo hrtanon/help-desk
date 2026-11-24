@@ -19,57 +19,38 @@ class Task:
         """Vrátí informace o úkolu."""
         return f"{self.title}, {self.id}, {self.popis}, {self.zadavatel}, {self.coment},{self.stav}"
 
-    @staticmethod
-    def zisk_hodnot():
-        """Načte hodnoty od uživatele."""
-        while True:
-            try:
-                title = input("Zadej název: ")
-                popis = input("Zadej popis: ")
-                coment = input("Zadej komentář (nepovinný): ")
-
-                
-
-                return title, popis, coment
-
-            except ValueError:
-                continue
+    
+    def zmena_hodnot(self,title,popis,coment):
+        """ulozi hodnoty od uživatele."""
+        
+        self.title = title
+        self.popis = popis
+        self.coment = coment
 
 
-    def zmena_statusu(self, stav=None):
+    def zmena_statusu(self, new_status):
         """Změní stav úkolu na jeden z povolených stavů."""
-        povolene_statusy = ["hotovo", "probiha", "ceka", "opravuje se"]
-
-        while True:
-            print(povolene_statusy)
-            new_status = input("Vyber status: ")
-
-            if new_status not in povolene_statusy:
-                print("Neplatný status.")
-                continue
-
-            self.stav = new_status
-            return f"Status byl změněn na {new_status}"
+        
+        self.stav = new_status
+        
         
         
     def __str__(self):
         return f"[{self.id}] {self.title} | {self.stav}"
 
-    def zmena_technika(self, technik=None):
+    def ulozeni_technika(self, new_technik):
         """Změní technika po dvojím zadání jeho jména."""
-        while True:
-            new_technik1 = input("Zadej jméno nového technika: ")
-            new_technik2 = input("Zadej znovu jméno technika: ")
+        self.technik = new_technik
+        return 
 
-            if new_technik1 == new_technik2:
-                self.technik = new_technik1
-                return self.technik
 
-            print("Jména se neshodují.")
-
-    def pridat_popis(self, popis):
+    def pridat_popis(self, new_popis):
         """Přidá nový text k dosavadnímu popisu."""
-        print(f"Minulý popis je: {self.popis}")
-        new_popis = input("Přidej popis: ")
         self.popis = self.popis + "\n" + new_popis
-        return self.popis
+        
+
+    
+    def vypis_popis(self):
+        """_summary_ vypise dosavadni popis
+        """        
+        return f"popis je: {self.popis}"
