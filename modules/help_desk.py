@@ -9,19 +9,15 @@ class Help_desk():
         self.next_id=1
     
     
-    def zisk_hodnot():
+    def zisk_hodnot(title,popis,coment):
             """Načte hodnoty od uživatele."""
-            while True:
-                title = input("Zadej název: ")
-                popis = input("Zadej popis: ")
-                coment = input("Zadej komentář (nepovinný): ")
-    
-                if title=="":
-                    print("zadejte nazev")
-                    continue
             
-                Task.zmena_hodnot(title, popis, coment)
-                return f"hotovo problem {title} ulozen"
+            if title=="":
+                print("zadejte nazev")
+                return None
+            
+            Task.zmena_hodnot(title, popis, coment)
+            return f"hotovo problem {title} ulozen"
     
         
     
@@ -36,7 +32,7 @@ class Help_desk():
         """        
         id=self.next_id
         self.next_id+=1
-        title,popis,coment = Task.zisk_hodnot()
+        title,popis,coment = self.zisk_hodnot()
         ukol=Task(id,title,popis,"uzivatelů","zalozen","technik",coment)
         self.tasks.append(ukol)
         print("task zalozen")
@@ -94,42 +90,35 @@ class Help_desk():
         return f"id neni"
 
 
-    def zmena_statusu(self, stav=None):
-            """Změní stav úkolu na jeden z povolených stavů."""
-            povolene_statusy = ["hotovo", "probiha", "ceka", "opravuje se"]
+    def zmena_statusu(self,new_status):
+        """Změní stav úkolu na jeden z povolených stavů."""
+        
+        if new_status not in Task.POVOLENE_STATUSY:
+            print("Neplatný status.")
+            return None
     
-            while True:
-                print(povolene_statusy)
-                new_status = input("Vyber status: ")
-    
-                if new_status not in povolene_statusy:
-                    print("Neplatný status.")
-                    continue
-    
-                Task.zmena_statusu(new_status)
-                return f"Status byl změněn na {new_status}"
+        Task.zmena_statusu(new_status)
+        return f"Status byl změněn na {new_status}"
 
 
 
 
 
-def pridat_popis(self):
+def pridat_popis(new_popis):
         """Přidá nový text k dosavadnímu popisu."""
         Task.vypis_popis()
-        new_popis = input("Přidej popis: ")
         Task.pridat_popis(new_popis)
         
         return Task.vypis_popis()
         
 
-def zmena_technika(self, technik=None):
+def zmena_technika( new_technik1,new_technik2):
         """Změní technika po dvojím zadání jeho jména."""
-        while True:
-            new_technik1 = input("Zadej jméno nového technika: ")
-            new_technik2 = input("Zadej znovu jméno technika: ")
+        if new_technik1=="":
+            print("neplatne jmeno technika")
+            return False
+        if new_technik1 == new_technik2:
+            Task.ulozeni_technika(new_technik1)
+            return f"technik zmenen na {new_technik1}"
 
-            if new_technik1 == new_technik2:
-                Task.ulozeni_technika(new_technik1)
-                return f"technik zmenen na {new_technik1}"
-
-            print("Jména se neshodují.")
+        print("Jména se neshodují.")

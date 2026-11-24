@@ -5,7 +5,9 @@
 
 class Task:
     """Třída ukládá úkol a provádí operace, které se ho týkají."""
-
+    POVOLENE_STATUSY = ["hotovo", "probiha", "ceka", "opravuje se"]
+        
+    
     def __init__(self, id, title, popis, zadavatel, stav, technik=None, coment=None):
         self.title = title
         self.popis = popis
