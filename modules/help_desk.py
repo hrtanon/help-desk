@@ -8,20 +8,13 @@ class Help_desk():
         self.tasks=[]
         self.next_id=1
     
+    def aha(self):
+        task=self.najdi_dle_id(id)
     
-    def zisk_hodnot(title,popis,coment):
-            """Načte hodnoty od uživatele."""
-            
-            if title=="":
-                print("zadejte nazev")
-                return None
-            
-            Task.zmena_hodnot(title, popis, coment)
-            return f"hotovo problem {title} ulozen"
     
         
     
-    def novy_task(self):
+    def novy_task(self,title,popis,coment=None):
         """
         vytvori task s pouzitim funkce zisk hondot z tridy task
         
@@ -29,10 +22,13 @@ class Help_desk():
         Args:
             uzivatel zada udaje do funkce zisk hodnot
         result: vytvoreny novy task a pridan na seltnam tasku a zvetso se next id o 1
-        """        
+        """       
+        if title=="":
+            print("zadejte nazev")
+            return None 
         id=self.next_id
         self.next_id+=1
-        title,popis,coment = self.zisk_hodnot()
+        
         ukol=Task(id,title,popis,"uzivatelů","zalozen","technik",coment)
         self.tasks.append(ukol)
         print("task zalozen")
@@ -90,35 +86,37 @@ class Help_desk():
         return f"id neni"
 
 
-    def zmena_statusu(self,new_status):
+    def zmena_statusu(self,id,new_status):
         """Změní stav úkolu na jeden z povolených stavů."""
-        
+        task=self.najdi_dle_id(id)
         if new_status not in Task.POVOLENE_STATUSY:
             print("Neplatný status.")
             return None
     
-        Task.zmena_statusu(new_status)
+        task.zmena_statusu(new_status)
         return f"Status byl změněn na {new_status}"
 
 
 
 
 
-def pridat_popis(new_popis):
+def pridat_popis(self,id,new_popis):
         """Přidá nový text k dosavadnímu popisu."""
-        Task.vypis_popis()
-        Task.pridat_popis(new_popis)
+        task=self.najdi_dle_id(id)
+        task.vypis_popis()
+        task.pridat_popis(new_popis)
         
-        return Task.vypis_popis()
+        return task.vypis_popis()
         
 
-def zmena_technika( new_technik1,new_technik2):
+def zmena_technika(self,id, new_technik1,new_technik2):
         """Změní technika po dvojím zadání jeho jména."""
+        task=self.najdi_dle_id(id)
         if new_technik1=="":
             print("neplatne jmeno technika")
             return False
         if new_technik1 == new_technik2:
-            Task.ulozeni_technika(new_technik1)
+            task.ulozeni_technika(new_technik1)
             return f"technik zmenen na {new_technik1}"
 
         print("Jména se neshodují.")
